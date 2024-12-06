@@ -10,7 +10,7 @@ sudo rm -r /usr/local/share/nvim/
 sudo make install
 rm -rf $HOME/neovim
 
-mkdir $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim
 cd $HOME/.config/nvim
 wget https://raw.githubusercontent.com/ann1hil8/linuxConfig/refs/heads/main/.config/nvim/init.lua
 
@@ -22,12 +22,13 @@ mkdir $HOME/go
 cd $HOME/go
 wget https://go.dev/dl/go1.23.4.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz
-echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.profile
+echo "export PATH=\"\$PATH\":/usr/local/go/bin" >> $HOME/.profile
 rm -rf $HOME/go
+source ~/.profile
 
 #install tmux
 sudo apt -y install tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 cd $HOME
 wget https://raw.githubusercontent.com/ann1hil8/linuxConfig/refs/heads/main/.tmux.conf
 echo "In tmux: Press prefix + I (capital i, as in Install) to fetch the plugin."
