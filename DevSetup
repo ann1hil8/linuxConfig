@@ -3,10 +3,12 @@
 #install nvim
 sudo apt -y install ripgrep xclip git lua5.1 ninja-build gettext cmake unzip curl build-essential
 git clone https://github.com/neovim/neovim $HOME/neovim
+cd $HOME/neovim
 git checkout stable
-cd $HOME/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo rm /usr/local/bin/nvim
 sudo rm -r /usr/local/share/nvim/
+
 sudo make install
 sudo rm -rf $HOME/neovim
 
